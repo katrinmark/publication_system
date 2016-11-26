@@ -2,3 +2,4 @@
 .build
 build/
 out/
+src/main/webapp/resources/node_modules/
