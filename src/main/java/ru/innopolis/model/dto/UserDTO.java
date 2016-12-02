@@ -1,18 +1,20 @@
-package ru.innopolis.dao;
+package ru.innopolis.model.dto;
 
 /**
- * This class contains properties that are necessary for user description in the system
+ * This class is used to transfer data to user table
  */
-public class User {
+public class UserDTO {
+    private int id;
     private String firstName;
     private String secondName;
     private String email;
     private String password;
 
-    public User() {
+    public UserDTO() {
     }
 
-    public User(String firstName, String secondName, String email, String password) {
+    public UserDTO(int id, String firstName, String secondName, String email, String password) {
+        this.id = id;
         this.firstName = firstName;
         this.secondName = secondName;
         this.email = email;
@@ -49,6 +51,14 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }
 

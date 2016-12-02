@@ -1,9 +1,3 @@
-@import "/resources/node_modules/bootstrap/dist/css/bootstrap.min.css";
-@import "/resources/node_modules/bootstrap/dist/css/bootstrap-theme.min.css";
-
-@import "/resources/css/form-elements.css";
-@import "/resources/css/style.css";
-
 body {
     background: #555555 url("/resources/img/backgrounds/2.jpg") no-repeat;
     background-size: cover;

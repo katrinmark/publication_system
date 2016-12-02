@@ -19,5 +19,5 @@ dependencies {
     compile group: 'mysql', name: 'mysql-connector-java', version: '5.1.6'
     compile "org.slf4j:slf4j-api:1.7.21"
     compile "org.slf4j:slf4j-log4j12:1.7.21"
-    compile group: 'org.liquibase', name: 'liquibase-maven-plugin', version: '3.5.3'
+    compile group: 'org.springframework', name: 'spring-webmvc', version: '4.3.3.RELEASE'
 }
