@@ -1,7 +1,7 @@
-<%@ page import="ru.innopolis.model.dto.UserDTO" %>
+<%@ page import="ru.innopolis.entity.Profile" %>
 <%@ page import="java.util.List" %><%--
   Created by IntelliJ IDEA.
-  User: Ekaterina
+  Profile: Ekaterina
   Date: 22.11.2016
   Time: 15:39
   To change this template use File | Settings | File Templates.

@@ -1,24 +1,14 @@
-package ru.innopolis.model.dto;
+package ru.innopolis.model;
 
-/**
- * This class is used to transfer data to user table
- */
-public class UserDTO {
-    private int id;
+
+public class ProfileModel {
     private String firstName;
     private String secondName;
     private String email;
     private String password;
+    private String confirmPassword;
 
-    public UserDTO() {
-    }
-
-    public UserDTO(int id, String firstName, String secondName, String email, String password) {
-        this.id = id;
-        this.firstName = firstName;
-        this.secondName = secondName;
-        this.email = email;
-        this.password = password;
+    public ProfileModel() {
     }
 
     public String getFirstName() {
@@ -53,12 +43,11 @@ public class UserDTO {
         this.password = password;
     }
 
-    public int getId() {
-        return id;
+    public String getConfirmPassword() {
+        return confirmPassword;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setConfirmPassword(String confirmPassword) {
+        this.confirmPassword = confirmPassword;
     }
 }
-

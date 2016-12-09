@@ -21,11 +21,11 @@
             </div>
 
             <c:choose>
-                <c:when test="${empty sessionScope.userId}">
+                <c:when test="${empty pageContext.request.userPrincipal.name}">
                 </c:when>
                 <c:otherwise>
                     <ul class="nav navbar-nav">
-                        <li class="active"><a href="/user_profile">Личный кабинет</a></li>
+                        <li class="active"><a href="/user/profile">Личный кабинет</a></li>
                         <li><a href="/publication/user_publications">Мои публикации</a></li>
                         <li><a href="/publication/add">Новая публикация</a></li>
                     </ul>

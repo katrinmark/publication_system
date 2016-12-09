@@ -2,6 +2,7 @@
        xmlns:mvc="http://www.springframework.org/schema/mvc"
        xmlns:context="http://www.springframework.org/schema/context"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
        xsi:schemaLocation="
         http://www.springframework.org/schema/beans
         http://www.springframework.org/schema/beans/spring-beans.xsd
@@ -10,8 +11,13 @@
         http://www.springframework.org/schema/context
         http://www.springframework.org/schema/context/spring-context.xsd">
 
-    <context:component-scan base-package="ru.innopolis" />
+    <mvc:annotation-driven/>
     <mvc:view-controller path="/" view-name="login"/>
+
+    <mvc:resources mapping="/resources/**" location="/resources/" cache-period="31556926"/>
+    <mvc:resources mapping="/bootstrap/**" location="/resources/node_modules/bootstrap/dist/" cache-period="31556926"/>
+
+    <context:component-scan base-package="ru.innopolis"/>
     <context:annotation-config/>
 
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
@@ -23,9 +29,10 @@
         </property>
     </bean>
 
-    <mvc:resources mapping="/resources/**" location="/resources/" cache-period="31556926"/>
-    <mvc:resources mapping="/bootstrap/**" location="/resources/node_modules/bootstrap/dist/" cache-period="31556926"/>
-
-    <mvc:annotation-driven />
+    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource"
+          p:driverClassName="com.mysql.jdbc.Driver"
+          p:url="jdbc:mysql://localhost:3306/publication_system"
+          p:username="root"
+          p:password="root"/>
 
 </beans>

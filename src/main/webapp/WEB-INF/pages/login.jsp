@@ -1,7 +1,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
-  User: Ekaterina
+  Profile: Ekaterina
   Date: 20.11.2016
   Time: 11:55
   To change this template use File | Settings | File Templates.
@@ -23,10 +23,10 @@
                         </div>
                     </div>
                     <div class="form-bottom">
-                        <form role="form" action="/login" method="post" class="login-form">
+                        <form role="form" action="/j_spring_security_check" method="post" class="login-form">
                             <div class="form-group">
                                 <label class="sr-only" for="form-username">Email</label>
-                                <input type="text" name="login" placeholder="Email..."
+                                <input type="text" name="username" placeholder="Email..."
                                        class="form-username form-control" id="form-username" required>
                             </div>
                             <div class="form-group">
