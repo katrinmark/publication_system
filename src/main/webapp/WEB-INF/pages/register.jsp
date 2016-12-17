@@ -34,7 +34,7 @@
                             </div>
                             <div class="form-group">
                                 <label class="sr-only">Email:</label>
-                                <input type="email" name="email" placeholder="Email..." required>
+                                <input type="username" name="username" placeholder="Email..." required>
                             </div>
                             <div class="form-group">
                                 <label class="sr-only">Пароль:</label>

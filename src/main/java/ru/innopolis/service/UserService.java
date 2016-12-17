@@ -10,7 +10,7 @@ import javax.servlet.http.HttpSession;
  * This interface describes methods connected with actions on users
  */
 public interface UserService {
-    ModelAndView register(ProfileModel profileModel);
+    ModelAndView register(ProfileModel profileModel, UserModel userModel);
     ModelAndView getUserProfile();
 
     //ModelAndView findByUsername(String username);

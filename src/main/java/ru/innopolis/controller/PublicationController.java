@@ -42,8 +42,8 @@ public class PublicationController {
 //        return publicationService.getPublicationsByUserId(session.getAttribute("userId").toString());
 //    }
 //
-//    @GetMapping("/portal/main")
-//    public ModelAndView geAllPublications() {
-//        return publicationService.getAllPublications();
-//    }
+    @GetMapping("/portal/main")
+    public ModelAndView geAllPublications() {
+        return publicationService.getAllPublications();
+    }
 }

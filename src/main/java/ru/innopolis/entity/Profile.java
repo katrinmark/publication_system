@@ -8,16 +8,15 @@ import javax.persistence.*;
 @Entity
 @Table(name = "profile")
 public class Profile extends BaseEntity{
+    @Column
     private String firstName;
+    @Column
     private String secondName;
-    private String email;
+    @Column
+    private String username;
 
     @OneToOne
-    @JoinColumn(name="id")
     private User user;
-
-    public Profile() {
-    }
 
     public String getFirstName() {
         return firstName;
@@ -35,12 +34,12 @@ public class Profile extends BaseEntity{
         this.secondName = secondName;
     }
 
-    public String getEmail() {
-        return email;
+    public String getUsername() {
+        return username;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public User getUser() {

@@ -10,21 +10,9 @@ import javax.persistence.Table;
  */
 @Entity
 @Table
-public class Role {
-    @Id
-    private Long id;
+public class Role extends BaseEntity{
+    @Column(columnDefinition = "varchar(250) default 'ROLE_USER'", unique = true)
     private String name;
-
-    public Role() {
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     public String getName() {
         return name;

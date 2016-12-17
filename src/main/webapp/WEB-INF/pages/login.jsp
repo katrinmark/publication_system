@@ -16,7 +16,7 @@
                 <div class="col-sm-6 col-sm-offset-3 form-box">
                     <div class="form-top">
                         <div class="form-top-left">
-                            <p>Введите email и пароль</p>
+                            <p>Введите username и пароль</p>
                         </div>
                         <div class="form-top-right">
                             <i class="fa fa-lock"></i>

@@ -1,5 +1,7 @@
 package ru.innopolis.entity;
 
+import org.hibernate.annotations.ColumnDefault;
+
 import javax.persistence.*;
 import java.io.Serializable;
 
@@ -8,27 +10,20 @@ import java.io.Serializable;
  */
 @Entity
 @Table(name = "users")
-public class User implements Serializable {
-    @Id
-    private Long id;
+public class User extends BaseEntity {
+    @Column
     private String username;
+    @Column
     private String password;
 
     @ManyToOne
-    @JoinColumn(name="role_id", nullable=false, columnDefinition="VARCHAR(250 default 'ROLE_USER'")
+    @JoinColumn(name = "role_id", columnDefinition = "long default 1")
     private Role role;
 
+    @Column(name = "enabled", insertable=false, updatable = false, nullable = false, columnDefinition = "boolean default true")
     private boolean enabled;
 
     public User() {
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 
     public String getUsername() {

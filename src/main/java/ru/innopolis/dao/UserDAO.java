@@ -1,6 +1,7 @@
 package ru.innopolis.dao;
 
 import ru.innopolis.entity.Profile;
+import ru.innopolis.entity.User;
 import ru.innopolis.exception.CustomException;
 
 /**
@@ -9,6 +10,6 @@ import ru.innopolis.exception.CustomException;
 public interface UserDAO {
     //    public Profile getUserById(String userId) throws CustomException;
 //    public List<Profile> getAllUsers() throws CustomException;
-    void registerUser(Profile user);
+    void registerUser(Profile profile, User user);
     Profile getUserByLogin(String login);
 }

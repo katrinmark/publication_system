@@ -19,7 +19,7 @@
                 <b/>
                 <th><b>Фамилия</b></th>
                 <b/>
-                <th><b>email</b></th>
+                <th><b>username</b></th>
             </tr>
 
             </thead>
@@ -30,7 +30,7 @@
                 <b/>
                 <th><b>Фамилия</b></th>
                 <b/>
-                <th><b>email</b></th>
+                <th><b>username</b></th>
             </tr>
             </tfoot>
 
@@ -39,7 +39,7 @@
                 <tr>
                     <th><c:out value="${user.firstName}"></c:out></th>
                     <th><c:out value="${user.secondName}"></c:out></th>
-                    <th><c:out value="${user.email}"></c:out></th>
+                    <th><c:out value="${user.username}"></c:out></th>
                 </tr>
             </c:forEach>
             </tbody>

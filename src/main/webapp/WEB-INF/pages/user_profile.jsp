@@ -26,7 +26,7 @@
                             </div>
                             <div class="form-group">
                                 <label class="sr-only">Email:</label>
-                                <input type="text" name="secondName" readonly value="${user.email}">
+                                <input type="text" name="secondName" readonly value="${user.username}">
                             </div>
                             <button type="submit" class="btn btn-default">Выйти</button>
                         </form>

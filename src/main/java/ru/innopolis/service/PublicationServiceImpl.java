@@ -33,4 +33,11 @@ public class PublicationServiceImpl implements PublicationService {
         publicationDAO.addPublication(publication);
         return modelAndView;
     }
+
+    @Override
+    public ModelAndView getAllPublications() {
+        ModelAndView modelAndView = new ModelAndView("publication_board");
+        modelAndView.addObject("publications", publicationDAO.getAllPublications());
+        return modelAndView;
+    }
 }

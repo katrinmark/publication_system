@@ -9,13 +9,11 @@ import javax.persistence.*;
 @Table
 public class Publication extends BaseEntity {
     @ManyToOne
-    @JoinColumn(name="authorId")
     private Profile profile;
+    @Column
     private String title;
+    @Column
     private String content;
-
-    public Publication() {
-    }
 
     public Profile getProfile() {
         return profile;

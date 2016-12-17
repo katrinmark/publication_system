@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.ModelAndView;
+import ru.innopolis.entity.User;
 import ru.innopolis.exception.CustomException;
 import ru.innopolis.exception.ValidationException;
 import ru.innopolis.model.ProfileModel;
@@ -28,10 +29,11 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public ModelAndView register(ProfileModel profileModel) {
+    public ModelAndView register(ProfileModel profileModel, UserModel userModel) {
         ModelAndView modelAndView = new ModelAndView("redirect:/login");
-        Profile user = BaseMapper.MAPPER_FACTORY.getMapperFacade().map(profileModel, Profile.class);
-        userDAO.registerUser(user);
+        Profile profile = BaseMapper.MAPPER_FACTORY.getMapperFacade().map(profileModel, Profile.class);
+        User user = BaseMapper.MAPPER_FACTORY.getMapperFacade().map(userModel, User.class);
+        userDAO.registerUser(profile, user);
         return modelAndView;
     }
 
