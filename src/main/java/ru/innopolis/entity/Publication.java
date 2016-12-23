@@ -8,20 +8,14 @@ import javax.persistence.*;
 @Entity
 @Table
 public class Publication extends BaseEntity {
-    @ManyToOne
-    private Profile profile;
     @Column
     private String title;
-    @Column
+    @Column(columnDefinition = "varchar(1000)")
     private String content;
 
-    public Profile getProfile() {
-        return profile;
-    }
-
-    public void setProfile(Profile profile) {
-        this.profile = profile;
-    }
+    @ManyToOne
+    @JoinColumn(name="profile_id")
+    private Profile profile;
 
     public void setTitle(String title) {
         this.title = title;
@@ -43,4 +37,11 @@ public class Publication extends BaseEntity {
         this.content = content;
     }
 
+    public Profile getProfile() {
+        return profile;
+    }
+
+    public void setProfile(Profile profile) {
+        this.profile = profile;
+    }
 }

@@ -1,5 +1,6 @@
 package ru.innopolis.dao;
 
+import ru.innopolis.entity.Profile;
 import ru.innopolis.entity.Publication;
 import java.util.List;
 
@@ -8,20 +9,9 @@ import java.util.List;
  */
 public interface PublicationDAO {
     void addPublication(Publication publication);
-
-    //    /**
-//     *
-//     * @param userId
-//     * @return
-//     * @throws CustomException
-//     */
-//    public List<Publication> getPublications(String userId) throws CustomException;
-//
-//    /**
-//     *
-//     * @param publication
-//     * @throws CustomException
-//     */
-//    public void addPublication(Publication publication) throws CustomException;
     List<Publication> getAllPublications();
+    List<Publication> getPublicationByUsername(String name);
+    Profile getProfileByUsername(String name);
+    Publication getPublicationById(Long publicationId);
+    Publication updatePublication(Publication publication);
 }

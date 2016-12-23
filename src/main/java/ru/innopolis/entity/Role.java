@@ -6,12 +6,12 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 /**
- * Created by Ekaterina on 06.12.2016.
+ * This class is used to transfer data to role table
  */
 @Entity
 @Table
 public class Role extends BaseEntity{
-    @Column(columnDefinition = "varchar(250) default 'ROLE_USER'", unique = true)
+    @Column(columnDefinition = "varchar(250)", unique = true)
     private String name;
 
     public String getName() {

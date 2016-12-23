@@ -1,6 +1,7 @@
 package ru.innopolis.model;
 
 public class UserModel extends BaseModel{
+    private static final long serialVersionUID = -992803178712367791L;
     private String username;
     private String confirmPassword;
     private String password;

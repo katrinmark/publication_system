@@ -6,7 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@include file="index.jsp"%>
+<%@include file="index.jsp" %>
 
 <div class="container">
     <form method="get" action="/logout">
@@ -16,6 +16,8 @@
                 <th><b>Заголовок</b></th>
                 <b/>
                 <th><b>Текст</b></th>
+                <b/>
+                <th></th>
             </tr>
 
             </thead>
@@ -25,6 +27,8 @@
                 <th><b>Заголовок</b></th>
                 <b/>
                 <th><b>Текст</b></th>
+                <b/>
+                <th></th>
             </tr>
             </tfoot>
 
@@ -33,6 +37,7 @@
                 <tr>
                     <th><c:out value="${publication.title}"></c:out></th>
                     <th><c:out value="${publication.content}"></c:out></th>
+                    <th><a href="/publication/view/${publication.id}" class="btn btn-default" role="button">Просмотреть</a></th>
                 </tr>
             </c:forEach>
             </tbody>

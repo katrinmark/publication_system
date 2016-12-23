@@ -7,6 +7,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <link href="<c:url value="/resources/css/main.css" />" rel="stylesheet">
 
@@ -23,10 +24,15 @@
             <c:choose>
                 <c:when test="${empty pageContext.request.userPrincipal.name}">
                 </c:when>
+                <c:when test="${fn:startsWith(pageContext.request.userPrincipal.name, 'admin')}">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="/user/all">Пользователи</a></li>
+                    </ul>
+                </c:when>
                 <c:otherwise>
                     <ul class="nav navbar-nav">
                         <li class="active"><a href="/user/profile">Личный кабинет</a></li>
-                        <li><a href="/publication/user_publications">Мои публикации</a></li>
+                        <li><a href="/publication/user">Мои публикации</a></li>
                         <li><a href="/publication/add">Новая публикация</a></li>
                     </ul>
                 </c:otherwise>
@@ -35,16 +41,6 @@
         </div>
     </nav>
 
-    <div class="row">
-        <div class="col-xs-6 col-xs-offset-3">
-        <c:if test="${not empty error}">
-            <div class="alert alert-danger">
-                <strong>Ошибка</strong>
-                ${error}
-            </div>
-        </c:if>
-        </div>
-    </div>
 
     <spring:url value="/resources/css/index.css" var="mainCss"/>
     <spring:url value="/resources/css/jquery.dataTables.min.css" var="dataTablesCss"/>

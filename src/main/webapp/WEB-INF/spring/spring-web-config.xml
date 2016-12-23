@@ -35,4 +35,19 @@
           p:username="root"
           p:password="root"/>
 
+    <bean class="ru.innopolis.exception.resolver.ValidatorExceptionResolver">
+        <property name="exceptionMappings">
+            <map>
+                <entry key="ru.innopolis.exception.ValidationException" value="/error"/>
+            </map>
+        </property>
+    </bean>
+    <bean class="ru.innopolis.exception.resolver.ExceptionResolver">
+        <property name="exceptionMappings">
+            <map>
+                <entry key="java.lang.Exception" value="/error"/>
+            </map>
+        </property>
+    </bean>
+
 </beans>

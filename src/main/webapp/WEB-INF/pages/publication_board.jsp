@@ -21,7 +21,7 @@
 
                             <div class="form-group">
                                 <textarea class="form-control" rows="5" readonly
-                                          name="content">"${publication.content}"</textarea>
+                                          name="content">${publication.content}</textarea>
                             </div>
                         </c:forEach>
                     </form>
@@ -30,4 +30,4 @@
         </div>
     </div>
 </div>
-</div>
+

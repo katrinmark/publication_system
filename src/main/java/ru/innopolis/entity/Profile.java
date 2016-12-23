@@ -3,7 +3,7 @@ package ru.innopolis.entity;
 import javax.persistence.*;
 
 /**
- * This class is used to transfer data to user table
+ * This class is used to transfer data to profile table
  */
 @Entity
 @Table(name = "profile")

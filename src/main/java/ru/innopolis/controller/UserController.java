@@ -7,10 +7,14 @@ import org.springframework.security.access.annotation.Secured;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
+import org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestWrapper;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
+import ru.innopolis.exception.ValidationException;
 import ru.innopolis.model.ProfileModel;
 import ru.innopolis.model.UserModel;
 import ru.innopolis.entity.Profile;
@@ -37,8 +41,9 @@ public class UserController {
         return modelAndView;
     }
 
+    @ExceptionHandler(Exception.class)
     @PostMapping(value = "/register")
-    public ModelAndView handleRegisterUser(ProfileModel profileModel, UserModel userModel) {
+    public ModelAndView handleRegisterUser(ProfileModel profileModel, UserModel userModel) throws ValidationException {
         return userService.register(profileModel, userModel);
     }
 
@@ -47,30 +52,33 @@ public class UserController {
         return new ModelAndView("login");
     }
 
-//
-//    @GetMapping(value = "/logout")
-//    public ModelAndView logoutUser(HttpSession session) {
-//        return userService.logoutUser(session);
-//    }
-//
-    @Secured("ROLE_USER")
-    @GetMapping(value = "/user/profile")
-    public ModelAndView getUserProfile() {
-        return userService.getUserProfile();
-        //return new ModelAndView("user_profile");
+    @Secured({"ROLE_USER", "ROLE_ADMIN"})
+    @GetMapping(value = "/profile")
+    public ModelAndView getUserProfile(HttpServletRequest request) {
+        if (request.isUserInRole("ROLE_ADMIN")) {
+            return getAdminProfile();
+        } else {
+            return userService.getUserProfile();
+        }
     }
 
     @Secured("ROLE_ADMIN")
     @GetMapping(value = "/admin/profile")
     public ModelAndView getAdminProfile() {
-        //return userService.getAdminProfile();
-        return new ModelAndView("admin_profile");
+        return userService.getAdminProfile();
     }
 
-    @GetMapping(value="/logout")
-    public String logoutPage (HttpServletRequest request, HttpServletResponse response) {
+    @Secured("ROLE_ADMIN")
+    @PostMapping(value = "/user/update")
+    public ModelAndView updateUser(UserModel userModel) {
+        userService.updateUser(userModel);
+        return getAdminProfile();
+    }
+
+    @GetMapping(value = "/logout")
+    public String logoutPage(HttpServletRequest request, HttpServletResponse response) {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        if (auth != null){
+        if (auth != null) {
             new SecurityContextLogoutHandler().logout(request, response, auth);
         }
         return "redirect:/login?logout";

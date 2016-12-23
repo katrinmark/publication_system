@@ -1,10 +1,12 @@
 package ru.innopolis.model;
 
 
-public class ProfileModel {
+public class ProfileModel extends BaseModel{
+    private static final long serialVersionUID = -4026015842066544347L;
     private String firstName;
     private String secondName;
     private String username;
+    private UserModel user;
 
     public ProfileModel() {
     }
@@ -33,4 +35,11 @@ public class ProfileModel {
         this.username = username;
     }
 
+    public UserModel getUser() {
+        return user;
+    }
+
+    public void setUser(UserModel user) {
+        this.user = user;
+    }
 }

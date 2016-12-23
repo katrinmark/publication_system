@@ -10,10 +10,8 @@ import java.util.Map;
  */
 public interface PublicationService {
     ModelAndView addPublication(PublicationModel publicationModel);
-
-    //    ModelAndView modifyPublication();
-//    ModelAndView deletePublication();
-//    ModelAndView getPublicationById();
-//    ModelAndView getPublicationsByUserId(String userId);
     ModelAndView getAllPublications();
+    ModelAndView getPublicationByUsername(String name);
+    ModelAndView getPublicationById(Long publicationId);
+    ModelAndView updatePublication(PublicationModel publicationModel);
 }

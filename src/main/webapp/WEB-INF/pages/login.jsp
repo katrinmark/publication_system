@@ -8,7 +8,6 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@include file="index.jsp" %>
-
 <div class="top-content">
     <div class="inner-bg">
         <div class="container">

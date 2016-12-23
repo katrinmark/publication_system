@@ -19,7 +19,9 @@
                 <b/>
                 <th><b>Фамилия</b></th>
                 <b/>
-                <th><b>username</b></th>
+                <th><b>Логин</b></th>
+                <b/>
+                <th><b>Активен</b></th>
             </tr>
 
             </thead>
@@ -30,7 +32,9 @@
                 <b/>
                 <th><b>Фамилия</b></th>
                 <b/>
-                <th><b>username</b></th>
+                <th><b>Логин</b></th>
+                <b/>
+                <th><b>Активен</b></th>
             </tr>
             </tfoot>
 
@@ -40,14 +44,33 @@
                     <th><c:out value="${user.firstName}"></c:out></th>
                     <th><c:out value="${user.secondName}"></c:out></th>
                     <th><c:out value="${user.username}"></c:out></th>
+                    <th>
+                        <c:if test="${user.user.enabled == 'true'}">
+                            <input type="checkbox" name="enabled" checked/>
+                        </c:if>
+                        <c:if test="${user.user.enabled == 'false'}">
+                            <input type="checkbox" name="enabled"/>
+                        </c:if>
+                        <!--
+                        <div hidden>
+                            <input class="id" value="${user.user.id}">
+                            <input class="enabled" value="${user.user.enabled}">
+                        </div>
+                        -->
+                        <a href="/user/update" class="btn btn-default" role="button">Изменить</a>
+                    </th>
                 </tr>
             </c:forEach>
             </tbody>
-
         </table>
+
+
         <tr>
             <th><input type="submit" class="button" value="Выйти"/></th>
         </tr>
     </form>
 </div>
+
+
+
 

@@ -5,7 +5,10 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
 /**
- * Created by Ekaterina on 08.12.2016.
+ * This class initialises Entity Manager that is used in the application
+ * for actions with database
+ *
+ * @see EntityManager
  */
 public class EntityManagerHolder {
 

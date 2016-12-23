@@ -9,7 +9,8 @@ import javax.persistence.Version;
 import java.io.Serializable;
 
 /**
- * Created by Ekaterina on 08.12.2016.
+ * This class is used as based entity for children entities
+ * to transfer data to the corresponding table
  */
 @MappedSuperclass
 public class BaseEntity implements Serializable {

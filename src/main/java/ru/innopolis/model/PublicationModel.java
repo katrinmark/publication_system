@@ -1,9 +1,10 @@
 package ru.innopolis.model;
 
 public class PublicationModel extends BaseModel {
-    private Long authorId;
+    private static final long serialVersionUID = -8118805303486862415L;
     private String title;
     private String content;
+    private ProfileModel profileModel;
 
     public PublicationModel() {
     }
@@ -24,11 +25,11 @@ public class PublicationModel extends BaseModel {
         this.content = content;
     }
 
-    public Long getAuthorId() {
-        return authorId;
+    public ProfileModel getProfileModel() {
+        return profileModel;
     }
 
-    public void setAuthorId(Long authorId) {
-        this.authorId = authorId;
+    public void setProfileModel(ProfileModel profileModel) {
+        this.profileModel = profileModel;
     }
 }

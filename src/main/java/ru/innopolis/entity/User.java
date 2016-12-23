@@ -1,9 +1,7 @@
 package ru.innopolis.entity;
 
-import org.hibernate.annotations.ColumnDefault;
 
 import javax.persistence.*;
-import java.io.Serializable;
 
 /**
  * Created by Ekaterina on 09.12.2016.
@@ -17,10 +15,10 @@ public class User extends BaseEntity {
     private String password;
 
     @ManyToOne
-    @JoinColumn(name = "role_id", columnDefinition = "long default 1")
+    @JoinColumn(name = "role_id")
     private Role role;
 
-    @Column(name = "enabled", insertable=false, updatable = false, nullable = false, columnDefinition = "boolean default true")
+    @Column(name = "enabled", columnDefinition = "boolean default true")
     private boolean enabled;
 
     public User() {
