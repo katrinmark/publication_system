@@ -69,8 +69,10 @@ public class UserController {
     }
 
     @Secured("ROLE_ADMIN")
-    @PostMapping(value = "/user/update")
-    public ModelAndView updateUser(UserModel userModel) {
+    @GetMapping(value = "/admin/user/update/{id}")
+    public ModelAndView updateUser(@PathVariable("id") Long id,
+                                               UserModel userModel) {
+        userModel.setId(id);
         userService.updateUser(userModel);
         return getAdminProfile();
     }

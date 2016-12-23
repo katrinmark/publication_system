@@ -51,13 +51,11 @@
                         <c:if test="${user.user.enabled == 'false'}">
                             <input type="checkbox" name="enabled"/>
                         </c:if>
-                        <!--
                         <div hidden>
-                            <input class="id" value="${user.user.id}">
-                            <input class="enabled" value="${user.user.enabled}">
+                            <input class="id" value="${user.id}">
+                            <input class="user.enabled" value="${user.user.enabled}">
                         </div>
-                        -->
-                        <a href="/user/update" class="btn btn-default" role="button">Изменить</a>
+                        <a href="/admin/user/update/${user.id}" class="btn btn-default" role="button">Изменить</a>
                     </th>
                 </tr>
             </c:forEach>

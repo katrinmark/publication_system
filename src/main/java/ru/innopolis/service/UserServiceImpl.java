@@ -5,7 +5,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.ModelAndView;
@@ -17,6 +16,9 @@ import ru.innopolis.entity.Profile;
 import ru.innopolis.model.UserModel;
 import ru.innopolis.utils.BaseMapper;
 import ru.innopolis.utils.ValidatorUtil;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * This class implements methods connected with actions on users
@@ -58,13 +60,19 @@ public class UserServiceImpl implements UserService {
     @Override
     public ModelAndView getAdminProfile() {
         ModelAndView modelAndView = new ModelAndView("admin_profile");
-        modelAndView.addObject("users", userDAO.getAllUsers());
+        List<Profile> profiles = userDAO.getAllUsers();
+        List<ProfileModel> profileModels = new ArrayList<>();
+        for (Profile profile : profiles) {
+            profileModels.add(mapper.map(profile, ProfileModel.class));
+        }
+        modelAndView.addObject("users", profileModels);
         return modelAndView;
     }
 
     @Override
     public void updateUser(UserModel userModel) {
-        User user = mapper.map(userModel, User.class);
+        User user = userDAO.getUserById(userModel.getId());
+        user.setEnabled(userModel.isEnabled());
         userDAO.updateUser(user);
     }
 }

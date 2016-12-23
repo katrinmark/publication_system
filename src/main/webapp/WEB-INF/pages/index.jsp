@@ -26,12 +26,12 @@
                 </c:when>
                 <c:when test="${fn:startsWith(pageContext.request.userPrincipal.name, 'admin')}">
                     <ul class="nav navbar-nav">
-                        <li class="active"><a href="/user/all">Пользователи</a></li>
+                        <li class="active"><a href="/admin/profile">Пользователи</a></li>
                     </ul>
                 </c:when>
                 <c:otherwise>
                     <ul class="nav navbar-nav">
-                        <li class="active"><a href="/user/profile">Личный кабинет</a></li>
+                        <li class="active"><a href="/profile">Личный кабинет</a></li>
                         <li><a href="/publication/user">Мои публикации</a></li>
                         <li><a href="/publication/add">Новая публикация</a></li>
                     </ul>

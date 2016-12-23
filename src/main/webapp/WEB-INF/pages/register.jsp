@@ -42,9 +42,13 @@
                             </div>
                             <div class="form-group">
                                 <label class="sr-only">Повторите пароль:</label>
-                                <input type="password" name="confirmPassword" placeholder="Повторите пароль..." required>
+                                <input type="password" name="confirmPassword" placeholder="Повторите пароль..."
+                                       required>
                             </div>
-                            <button type="submit" class="btn btn-default">Сохранить</button>
+                            <div class="row">
+                                <button type="submit" class="btn btn-default">Сохранить</button>
+                                <a href="/login" class="btn btn-default" role="button">Логин</a>
+                            </div>
                         </form>
                     </div>
                 </div>

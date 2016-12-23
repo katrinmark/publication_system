@@ -52,8 +52,6 @@ public class PublicationDAOImpl implements PublicationDAO {
 
     @Override
     public Publication updatePublication(Publication publication) {
-//        entityManager.createQuery("UPDATE Publication AS p SET p.content=\'"
-//                + publication.getContent() + "\' WHERE p.id=\'" + publication.getId() + "\')");
         try {
             entityManager.getTransaction().begin();
             entityManager.merge(publication);

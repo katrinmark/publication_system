@@ -6,6 +6,7 @@ import org.springframework.stereotype.Component;
 import ru.innopolis.entity.Profile;
 import ru.innopolis.entity.Role;
 import ru.innopolis.entity.User;
+import ru.innopolis.model.ProfileModel;
 import ru.innopolis.utils.EntityManagerHolder;
 
 import javax.persistence.EntityManager;
@@ -61,5 +62,10 @@ public class UserDAOImpl implements UserDAO {
         } finally {
             entityManager.getTransaction().commit();
         }
+    }
+
+    @Override
+    public User getUserById(Long id) {
+        return entityManager.find(User.class, id);
     }
 }

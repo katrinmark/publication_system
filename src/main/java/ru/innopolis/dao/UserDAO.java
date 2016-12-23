@@ -12,6 +12,6 @@ public interface UserDAO {
     void registerUser(Profile profile, User user);
     Profile getUserByLogin(String login);
     List<Profile> getAllUsers();
-
     void updateUser(User user);
+    User getUserById(Long id);
 }
